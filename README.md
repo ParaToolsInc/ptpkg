@@ -7,7 +7,9 @@ Created: 12 Jan 2012
 
 Author: John C. Linford (jlinford@paratools.com)
 
-Copyright (c) ParaTools, Inc.
+License: BSD
+
+Copyright:  ParaTools, Inc.
 
 Introduction
 -------------------------------------------------------------------------------
