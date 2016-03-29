@@ -1,0 +1,11 @@
+#
+# ParaTools Packages
+#
+# Target manifest
+#
+
+# Dependency information
+PROVIDES=( freetype glib pkg-config libiconv zlib )
+REQUIRES=( )
+EXCLUDES=( )
+

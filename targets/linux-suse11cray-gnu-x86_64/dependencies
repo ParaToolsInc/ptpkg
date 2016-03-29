@@ -1,0 +1,11 @@
+#
+# ParaTools Packages
+#
+# Target manifest
+#
+
+# Dependency information
+PROVIDES=( pkg-config glib gtk2 pango gettext freetype fontconfig zlib )
+REQUIRES=( system-mpi-default )
+EXCLUDES=( )
+

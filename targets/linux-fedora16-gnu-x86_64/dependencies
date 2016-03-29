@@ -1,0 +1,11 @@
+#
+# ParaTools Packages
+#
+# Target manifest
+#
+
+# Dependency information
+PROVIDES=( libiconv ncurses gettext readline openssl gtk2 glib pango pkg-config )
+REQUIRES=( )
+EXCLUDES=( )
+

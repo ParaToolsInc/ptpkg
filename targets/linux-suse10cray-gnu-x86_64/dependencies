@@ -1,0 +1,11 @@
+#
+# ParaTools Packages
+#
+# Target manifest
+#
+
+# Dependency information
+PROVIDES=( glib pkg-config libiconv )
+REQUIRES=( system-mpi-default ) 
+EXCLUDES=( )
+

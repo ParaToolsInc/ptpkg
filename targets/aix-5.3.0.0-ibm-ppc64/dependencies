@@ -1,0 +1,11 @@
+#
+# ParaTools Packages
+#
+# Target manifest
+#
+
+# Dependency information
+PROVIDES=( )
+REQUIRES=( system-mpi-default expat pkg-config )
+EXCLUDES=( mpich2 openmpi )
+

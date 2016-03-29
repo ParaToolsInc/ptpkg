@@ -1,0 +1,11 @@
+#
+# ParaTools Packages
+#
+# Target manifest
+#
+
+# Dependency information
+PROVIDES=( glib gtk2 pango pkg-config libiconv gettext readline libpng freetype fontconfig ncurses )
+REQUIRES=( )
+EXCLUDES=( )
+

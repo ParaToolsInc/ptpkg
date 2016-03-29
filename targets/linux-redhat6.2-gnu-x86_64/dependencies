@@ -1,0 +1,11 @@
+#
+# ParaTools Packages
+#
+# Target manifest
+#
+
+# Dependency information
+PROVIDES=( gtk2 glib pango pkg-config libiconv gettext zlib bzip2 freetype ncurses openssl libffi )
+REQUIRES=( )
+EXCLUDES=( )
+

@@ -98,3 +98,77 @@ PTPKG_INSTALL_PREFIX
 PTPKG_LOGFILE_PREFIX
   Description: Full path to the directory where logfiles will be saved
   Example:     "/home/jlinford/software/ptoolsrte/logs"
+PTPKG_ETCFILE_PREFIX
+  Description: Full path to the directory where configuration files will be saved
+  Example:     "/home/jlinford/software/ptoolsrte/etc"
+
+PTPKG_TARGET
+  Description: Target configuration
+  Example:     "linux-gnu-x86_64"
+PTPKG_OS
+  Description: Target operating system
+  Example:     "linux"
+PTPKG_COMPILER
+  Description: Target compiler family
+  Example:     "gnu"
+PTPKG_ARCH
+  Description: Target architecture
+  Example:     "x86_64"
+PTPKG_TARGET_DIR
+  Description: Full directory path to the target configuration
+  Example:     "/home/jlinford/ptoolsrte/targets/linux-gnu-x86_64"
+PTPKG_TARGET_LIBRARY_PATH
+  Description: The operating-specific environment variable specifying the
+               dynamic library search path
+  Example:     "LD_LIBRARY_PATH"  or  "DYLD_LIBRARY_PATH"
+
+PTPKG_PKG
+  Description: Full package name
+  Example:     "openmpi-1.4.4"
+PTPKG_PKG_NAME
+  Description: Package name
+  Example:     "openmpi"
+PTPKG_PKG_VERSION
+  Description: Package version
+  Example:     "1.4.4"
+PTPKG_PKG_DIR
+  Description: Full directory path to the package
+  Example:     "/home/jlinford/ptoolsrte/packages/openmpi-1.4.4"
+PTPKG_PKG_BUILD_DIR
+  Description: Full directory path where the package is built
+  Example:     "/home/jlinford/software/ptoolsrte/build/openmpi-1.4.4"
+PTPKG_PKG_INSTALL_DIR
+  Description: Full directory path where the package will be installed
+  Example:     "/home/jlinford/software/ptoolsrte/build/openmpi-1.4.4"
+
+The following variables can (and should) be set in the package manifest file:
+
+PTPKG_PKG_ARCHIVE
+  Description: Path to package archive file, relative to PTPKG_PKG_DIR
+  Example:     "openmpi-1.4.4.tar.gz"
+  Details:     The package archive file should be some kind of compressed
+               archive file (e.g. zip, tgz, or tar.bz2).  It will be expanded
+               to create PTPKG_PKG_BUILD_DIR.
+PTPKG_PKG_PROVIDES
+  Description: List of features the package provides (see "Features")
+  Example:     "MPI"
+  Details:     PTPKG_PKG and PTPKG_PKG_NAME are automatically added
+               to PTPKG_PKG_PROVIDES
+PTPKG_PKG_REQUIRES
+  Description: List of features the package requires
+  Example:     "gfortran"
+  Details:     At least one package that provides each feature in
+               PTPKG_PKG_REQUIRES must be installed before this package can be
+               installed.
+PTPKG_PKG_EXCLUDES
+  Description: List of features the package excludes
+  Example:     "mpich2"
+  Details:     Any package that provide the features listed in
+               PTPKG_PKG_EXCLUDES cannot be installed if this package is
+               installed.
+
+PTPKG provides commands to simplify writing package processing scripts:
+
+.... someday I'll actually finish this README file .... 
+
+
