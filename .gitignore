@@ -1,1 +1,6 @@
 packages/
+.receipt*
+*.o
+*.a
+*.so
+*.swp

@@ -36,6 +36,7 @@ PTPKG_PKG_TEST_DIR=""
 
 # Package source 
 PTPKG_PKG_ARCHIVE=""
+PTPKG_PKG_URL=""
 
 # Package dependencies
 declare -a PTPKG_PKG_PROVIDES
@@ -170,8 +171,10 @@ function selectPackage {
   if [ "$_PKG" != "$PTPKG_TARGET" ] ; then
     source "$PTPKG_PKG_SOURCE_FILE"
     PTPKG_PKG_ARCHIVE="$FILE"
+    PTPKG_PKG_URL="$URL"
   else
     PTPKG_PKG_ARCHIVE=""
+    PTPKG_PKG_URL=""
   fi
 
   return 0
@@ -474,6 +477,12 @@ function execPackageInstall {
     echo "  Env. file     : $PTPKG_PKG_ENV_FILE"
     hline
     echo
+
+    # If the package archive file doesn't exist try to download it
+    if [ ! -e "$PTPKG_PKG_ARCHIVE" ] ; then
+      downloadPackage || \
+        exitWithError "$PTPKG_PKG: Package download failed: $PTPKG_PKG_URL"
+    fi
 
     # Add package dependencies to the environment
     bootstrapPackageDeps || \
@@ -1331,6 +1340,20 @@ function buildInstallation {
 
   # Installation can proceed
   return 0
+}
+
+#
+# Downloads PTPKG_PKG_URL and places the result at PTPKG_PKG_ARCHIVE
+# Arguments: none
+#
+function downloadPackage {
+  if which wget >/dev/null 2>&1 ; then
+    wget -O "$PTPKG_PKG_DIR/$PTPKG_PKG_ARCHIVE" "$PTPKG_PKG_URL"
+  elif which curl >/dev/null 2>&1 ; then
+    curl -L "$PTPKG_PKG_URL" > "$PTPKG_PKG_DIR/$PTPKG_PKG_ARCHIVE"
+  else
+    exitWithError "Need curl or wget to download packages"
+  fi
 }
 
 #
