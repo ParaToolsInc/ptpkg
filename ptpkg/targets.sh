@@ -286,6 +286,18 @@ function getDarwinDistro {
   darwin11*)
     PTPKG_HOST_DIST="lion"
     ;;
+  darwin12*)
+    PTPKG_HOST_DIST="mountain_lion"
+    ;;
+  darwin13*)
+    PTPKG_HOST_DIST="mavericks"
+    ;;
+  darwin14*)
+    PTPKG_HOST_DIST="yosemite"
+    ;;
+  darwin15*)
+    PTPKG_HOST_DIST="el_capitan"
+    ;;
   *)
     echo "Warning: Unknown darwin distribution: $OSTYPE"
     PTPKG_HOST_DIST="any"
