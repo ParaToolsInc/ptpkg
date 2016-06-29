@@ -479,9 +479,13 @@ function execPackageInstall {
     echo
 
     # If the package archive file doesn't exist try to download it
-    if [ ! -e "$PTPKG_PKG_ARCHIVE" ] ; then
-      downloadPackage || \
-        exitWithError "$PTPKG_PKG: Package download failed: $PTPKG_PKG_URL"
+    if [ -n "$PTPKG_PKG_ARCHIVE" -a ! -e "$PTPKG_PKG_DIR/$PTPKG_PKG_ARCHIVE" ] ; then
+      if [ -n "$PTPKG_PKG_URL" ] ; then
+        downloadPackage || \
+          exitWithError "$PTPKG_PKG: Package download failed: $PTPKG_PKG_URL"
+      else
+        exitWithError "$PTPKG_PKG: Package source not found"
+      fi
     fi
 
     # Add package dependencies to the environment
